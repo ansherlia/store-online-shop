@@ -2,22 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: #000;
 }
 
 @layer utilities {
@@ -25,3 +11,66 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer components {
+  .hover-link {
+    position: relative;
+    width: fit-content;
+  }
+  .hover-link::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: oklch(90.5% 0.182 98.111);
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  }
+  .hover-link:hover::after {
+    width: 100%;
+    left: 0%;
+    right: 0%;
+  }
+  .bg-signin___page {
+    background: url("/images/modelOnline.avif");
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    /* opacity: 70%; */
+  }
+  .overlay {
+    @apply  opacity-0 bg-black/40 w-full h-full fixed inset-0 z-10 md:hidden;
+  }
+  .overlay-visible {
+    opacity: 100;
+    visibility: visible;
+  }
+}
+
+/* .hover-link {
+  position: relative;
+  width: fit-content;
+}
+.hover-link::after {
+  content: "";
+  position: absolute;
+  left: 0%;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: rgb(14, 250, 191);
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+.hover-link:hover::after {
+  width: 100%;
+  left: 0%;
+  right: 0%;
+} */
